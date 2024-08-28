@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Module02Exercise01.View.EmployeePage"
-             Title="EmployeePage">
+             Title="EmployeePage" BackgroundColor="DarkBlue">
     <VerticalStackLayout>
         <!-- Label bound to FullName property-->
         <Label Text="{Binding FullName}" FontSize="20"/>
@@ -10,16 +10,22 @@
 
         <!-- Button bound to LoadEmployeeDataCommand-->
         <Button Text="Display Manager"
-                Command="{Binding LoadEmployeeDataCommand}"/>
+                Command="{Binding LoadEmployeeDataCommand}"/> &#10;
 
-        <ListView ItemsSource="{Binding Employees}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding FullNames}" 
+        <Border Stroke="#000"
+        StrokeThickness="4"
+        Background="#000"
+        Padding="16,8"
+        HorizontalOptions="Center">
+            <ListView ItemsSource="{Binding Employees}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding FullNames}" 
                               Detail="{Binding Status}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
 
     </VerticalStackLayout>
 </ContentPage>
